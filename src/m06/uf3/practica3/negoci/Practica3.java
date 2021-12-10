@@ -37,6 +37,9 @@ public class Practica3 {
 		System.out.println("\nIntroduce your desired country | Or press 1 to see the country list again.");
 		Scanner sc = new Scanner(System.in);
 		query = sc.nextLine();
+		String a = query.substring(0,1);
+		query = query.substring(1, query.length());
+		query = a.toUpperCase() + query;
 		
 		
 		//System.out.println("input; " + query);
