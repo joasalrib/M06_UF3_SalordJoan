@@ -23,7 +23,8 @@ public class Practica3 {
 		interficie.presentation();
 		
 		new Open("factbook").execute(context);
-		System.out.println(new XQuery("for $pais in //country return data($pais/name)").execute(context));
+		
+		interficie.showFullList(new XQuery("for $pais in //country return data($pais/name)").execute(context));
 
 		getQuery();
 
