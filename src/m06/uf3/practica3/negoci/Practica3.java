@@ -24,16 +24,20 @@ public class Practica3 {
 		
 		new Open("factbook").execute(context);
 		
-		interficie.showFullList(new XQuery("for $pais in //country return data($pais/name)").execute(context));
+		getFullList();
 
 		getQuery();
 
 		context.close();
 	}
 	
-	private static void getQuery() {
+	public static void getFullList() throws BaseXException {
+		interficie.setFullList(new XQuery("for $pais in //country return data($pais/name)").execute(context));
+	}
+	
+	private static void getQuery() throws BaseXException, QueryException {
 		interficie.showMenu();
-		Scanner sc = new Scanner(System.in);
+		/*Scanner sc = new Scanner(System.in);
 		query = sc.nextLine();
 		String a = query.substring(0,1);
 		query = query.substring(1, query.length());
@@ -51,7 +55,10 @@ public class Practica3 {
 		} catch (QueryException e) {
 			e.printStackTrace();
 		}
-		sc.close();
+		sc.close();*/
+		
+		query = interficie.getUserQuery();
+		query(query);
 	}
 	
 	private static void query(String query) throws QueryException, BaseXException{
